@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import { updateTransaction } from "../../actions";
+import Link from "next/link";
 
 export default function EditForm({ transaction, dateString }: {
   transaction: { id: number; amount: number; category: string; name: string };
@@ -79,7 +80,7 @@ export default function EditForm({ transaction, dateString }: {
         </div>
 
         <div className="flex gap-4 mt-6">
-          <a href="/edit" className="w-full text-center py-4 rounded-xl border border-gray-200 hover:bg-gray-50">Cancel</a>
+          <Link href="/edit" className="w-full text-center py-4 rounded-xl border border-gray-200 hover:bg-gray-50">Cancel</Link>
           <button type="submit"
             className="w-full bg-black text-white font-semibold py-4 rounded-xl hover:bg-gray-800 transition-colors">
             {type === "income" ? "💾 บันทึกรายรับ" : "💾 บันทึกรายจ่าย"}
