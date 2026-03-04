@@ -4,10 +4,12 @@ import { cookies } from "next/headers";
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
 
-  const correctUsername = process.env.APP_USERNAME;
-  const correctPassword = process.env.APP_PASSWORD;
+  // เช็คทั้ง 2 user
+  const isValid =
+    (username === process.env.APP_USERNAME && password === process.env.APP_PASSWORD) ||
+    (username === process.env.APP_USERNAME2 && password === process.env.APP_PASSWORD2);
 
-  if (username !== correctUsername || password !== correctPassword) {
+  if (!isValid) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
