@@ -12,9 +12,9 @@ datasource db {
 // สร้างตารางชื่อ Transaction (รายการธุรกรรม)
 model Transaction {
   id        Int      @id @default(autoincrement()) // รหัสรายการ (รันอัตโนมัติ 1, 2, 3...)
-  name      String   // ชื่อรายการ (เช่น ค่าข้าว)
-  amount    Float    // จำนวนเงิน (บวกคือรายรับ, ลบคือรายจ่าย)
-  category  String   // หมวดหมู่
+  name      String // ชื่อรายการ (เช่น ค่าข้าว)
+  amount    Float // จำนวนเงิน (บวกคือรายรับ, ลบคือรายจ่าย)
+  category  String // หมวดหมู่
   date      DateTime // วันที่ทำรายการ
   createdAt DateTime @default(now()) // วันที่บันทึกข้อมูลจริง
 }
